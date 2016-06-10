@@ -1,0 +1,13 @@
+	<h2><%= name ||= "Nueva" %></h2>
+	<%= form_for (@category) do |f| %>
+	<div>
+		<%= f.text_field :name, placeholder: "Nombre", class:"form-control"%>
+	</div>
+	<div>
+		<%= f.text_area :description, placeholder: "Escribe aqui la description", style: "height:250px", class:"form-control" %>
+	</div>
+	<div>
+		<%= link_to "Regresar", categories_path, class:"btn btn-default"%>
+		<%= f.submit "Guardar", class:"btn-btn-info"%>
+	</div>
+	<%end%>

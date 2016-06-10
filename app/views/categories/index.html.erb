@@ -1,0 +1,23 @@
+<table class="table table-sstriped table-hover">
+	<thead>
+		<tr>
+		<th>Nombre</th>
+		<th>Descripción</th>
+		<th width='250px' align='center'></th>
+			<%= link_to "Nuevo", new_category_path(), class:'btn btn-default'%>
+		</tr>
+	</thead>
+	<tbody>
+		<% @categories.each do |category| %>
+		<tr>
+			<td><%= category.name %></td>
+			<td><%= category.description %></td>
+			<td>
+				<%= link_to "Ver",category, class:'btn btn-primary' %>
+				<%= link_to "Editar",edit_category_path(category), class:'btn btn-success' %>
+				<%= link_to "Eliminar",category, method: :delete, class:'btn btn-danger' %>
+			</td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
