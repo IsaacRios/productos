@@ -1,5 +1,14 @@
-	<h2><%= name ||= "Nueva" %></h2>
+	<% name ||= "Nueva" %>
+	<h2><%= name%> Categoría </h2>
 	<%= form_for (@category) do |f| %>
+		<% if @category.errors.full_messages.length > 0 %>
+			<div class="alert alert-dimissible alert-danger">
+				<button type='button' class='close' data-dismiss='alert'>x</button>
+				<% @category.errors.full_messages.each do |messages| %>
+					<h5><%= messages %></h5>
+				<%end%>
+			</div>
+		<%end%>
 	<div>
 		<%= f.text_field :name, placeholder: "Nombre", class:"form-control"%>
 	</div>
